@@ -8,7 +8,10 @@
     <body>
 
         <h1>The border-radius Property</h1>
-        <input id="border" placeholder="número do arredendamento" type="number">
+        <input id="border_tl" placeholder="tl" type="number">
+        <input id="border_tr" placeholder="tr" type="number">
+        <input id="border_br" placeholder="br" type="number">
+        <input id="border_bl" placeholder="bl" type="number">
         <br><br>
         <button id="butao" onclick="Alterar()" type="submit" style="border: 2px solid; width: 50px; height: 20px;">Alterar</button>
         <p>Altere o arredondamento das bordas.</p>
@@ -18,10 +21,12 @@
             alert("está no script");
             function Alterar(){
                 alert("está na funçao");
-                let valor = document.getElementById('border').value;
-                alert(valor);
+                let valorTL = document.getElementById('border_tl').value;
+                let valorTR = document.getElementById('border_tr').value;
+                let valorBR = document.getElementById('border_br').value;
+                let valorBL = document.getElementById('border_bl').value;
                 let testeII = document.getElementById('rcorners1');
-                testeII.style.borderRadius = valor + "px";
+                testeII.style.borderRadius = valorTL + "px " + valorTR + "px " + valorBR + "px " + valorBL + "px";
                 alert("terminou a funçao");
             }
             //let testeI =document.querySelector('p');
