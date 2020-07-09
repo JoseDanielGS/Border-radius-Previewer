@@ -1,10 +1,10 @@
 <!DOCTYPE html>
     <html>
     <head>
-        <style src="border.js"></style>
+        
     </head>
+    <style src="border.js"></style>
     <link rel="stylesheet" href="teste.css">
-
     <body>
 
         <h1>The border-radius Property</h1>
@@ -15,31 +15,41 @@
         <br><br>
         <button id="butao" onclick="Alterar()" type="submit" style="border: 2px solid; width: 50px; height: 20px;">Alterar</button>
         <p>Altere o arredondamento das bordas.</p>
-        <p id="rcorners1" >Rounded corners!</p>
+        
+        <div id="rcorners1" >Rounded corners!
+            <div id="rcorners2">
+                <p id="desc_br">css border radius:</p>
+            </div>
+
+        </div>
 
         <script>
-            alert("está no script");
             function Alterar(){
-                alert("está na funçao");
-                let valorTL = document.getElementById('border_tl').value;
-                let valorTR = document.getElementById('border_tr').value;
-                let valorBR = document.getElementById('border_br').value;
-                let valorBL = document.getElementById('border_bl').value;
+                var valores = []; //0-TL ; 1-TR ; 2-BR ; 3-BL
+                valores.push(document.getElementById('border_tl').value);
+                valores.push(document.getElementById('border_tr').value);
+                valores.push(document.getElementById('border_br').value);
+                valores.push(document.getElementById('border_bl').value);
                 let testeII = document.getElementById('rcorners1');
-                testeII.style.borderRadius = valorTL + "px " + valorTR + "px " + valorBR + "px " + valorBL + "px";
-                alert("terminou a funçao");
+                testeII.style.borderRadius = valores[0] + "px " + valores[1] + "px " + valores[2] + "px " + valores[3] + "px";
+                
+                //let valores = function(valores){return valores};
+                var desc_br = document.getElementById('desc_br');
+                var valor_str = "css border radius: ";
+                for(var i=0; i<valores.length; i++){
+                    if(i == 0){
+                        valor_str = valor_str + "<br>border-top-left-radius:";        
+                    }else if(i == 1){
+                        valor_str = valor_str + "<br>border-top-right-radius:";
+                    }else if(i == 2){
+                        valor_str = valor_str + "<br>border-bottom-right-radius:";
+                    }else if(i == 3){
+                        valor_str = valor_str + "<br>border-bottom-left-radius:";
+                    }
+                    valor_str = valor_str + String(valores[i]); 
+                }
+                desc_br.innerHTML = valor_str;
             }
-            //let testeI =document.querySelector('p');
-            //testeII.setAttribute("style", "border-radius: 0px; background: #73AD21; padding: 20px; width: 200px; height: 150px ");
-            /*let teste = testeII[0];
-            let testeIII = teste.classList.value;*/
-            //let testeIIII = testeIII[0]
-            /*1let teste2 = teste.
-            testeI.style.background = "yellow";
-            let testeO = testeII.item('border-radius');
-            let testeOK = testeO.style.border-radius;
-            testeOK = '0px';*/
-            
         </script>   
     </body>
     </html>
